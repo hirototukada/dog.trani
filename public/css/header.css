@@ -1,0 +1,57 @@
+h1{
+  color: #99CC66;
+}
+.green{
+  background-color: #99CC66;
+}
+.green-text{
+  color: #99CC66;
+}
+.li{
+  color: #99CC66;
+  font-size: 20px;
+  font-weight: bold;
+}
+.li a{
+  padding: 5px;
+  color: #99CC66;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.green-g-under{
+  text-decoration: none;
+  font-weight: bold;
+}
+.border-g{
+  border: solid 1px #99CC66;
+}
+.border-b{
+  border-bottom: solid 1px #99CC66;
+}
+.border-t{
+  border-top: solid 1px #99CC66;
+}
+.g-p{
+  font-size: 20px;
+}
+#bt-t{
+  background-color: #99CC66;
+}
+.border-p{
+border: solid 1px #FFB6C1;
+}
+.logo1{
+  position: relative;
+  top: 150px;
+}
+.smoke{
+  height: 70px;
+  width: 200px;
+  margin-top: 40px;
+}
+.siba{
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+

@@ -1,0 +1,28 @@
+.green1{
+  border:solid 1px #CCFFCC;
+  }
+  #g{
+    border:solid 1px #99CC66;
+    }
+    .ge{
+      height: 150px;
+      color: white;
+      background-color: white;
+      border: solid 3px #99CC66;
+      font-size: 40px;
+      font-weight: bold;
+      width: 40%;
+    }
+    #ge{
+      height: 150px;
+      color: #99CC66;
+      background-color: white;
+      border: solid 3px #99CC66;
+      font-size: 40px;
+      font-weight: bold;
+      width: 40%;
+    }
+    .g-a{
+      color: #99CC66;
+      text-decoration: none;
+    }

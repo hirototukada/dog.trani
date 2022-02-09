@@ -1,0 +1,47 @@
+body{
+  background-image: url(/img/dog6.jpeg);
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.top{
+  margin-top: 200px;
+  margin-left: 1000px;
+}
+h1{
+  font-size: 60px;
+  font-weight: bold;
+  line-height: normal;
+  color: white;
+}
+.login{
+  margin: auto;
+  margin-top: 150px;
+  margin-left: 60%;
+  font-size: 20px;
+}
+.log{
+  margin-left: 55%;
+}
+.button{
+  color: white;
+}
+.input{
+  width: 300px;
+  text-align: left;
+}
+.mail{
+  width: 150px;
+  margin-right: 20px;
+  font-size: 20px;
+}
+.body{
+  display: flex;
+  justify-content:flex-start;
+}
+.button{
+  cursor: pointer;
+}
+.link{
+  margin-left: 370px;
+}
