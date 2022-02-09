@@ -1,11 +1,9 @@
 # subject
+サービス名：ファーストドッグサービス
+
 犬のしつけの情報サイト、自作
 
-# Name
-
-ファーストドッグサービス
-
-# Features
+# 概要
 
 ・自分の抱えている犬の覚えさせたい行動をキーワード検索でき、自分の見つけたい投稿を一覧で閲覧できます。
 
@@ -13,14 +11,19 @@
 
 ・気に入った投稿があればいいねすることもできます。
 
-# Requirement
+# テストユーザー
 
-* xammp
-* php
-* mysql
+メールアドレス→kajou@koukou
 
-# DateBase
+パスワード→aominedaiki
 
-*name-dogform
+# 環境
+
+xammp/mysql/php
+
+# データベース
+
+データベース名：dog_form
+お使いのphpMyAdminに上記ファイル（smilelifeDB.sql）をインポートしていただければお使いになれると思います。
 
 
