@@ -2,10 +2,10 @@
 if (empty($_SERVER["HTTP_REFERER"])) {
   header('Location: ../login/login.php');
 }
-require_once(ROOT_PATH .'/Controllers/PlayerController.php');
-$player = new PlayerController();
+require_once(ROOT_PATH .'Controllers/Dog_userController.php');
+$users = new Dog_userController();
 $brog = $_POST;
-$player->Insert_usure($brog);
+$users->Insert_usure($brog);
 ?>
 <!DOCTYPE html>
 <html lang="ja">

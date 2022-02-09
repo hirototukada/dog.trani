@@ -16,7 +16,7 @@ class Db{
           exit();
         }
       }else {
-        $this->dbh = $dnh;
+        $this->dbh = $dbh;
       }
     }
 

@@ -4,13 +4,15 @@ if (empty($_SERVER["HTTP_REFERER"])) {
   }
 session_start();
 require_once(ROOT_PATH .'/Controllers/PlayerController.php');
+require_once(ROOT_PATH .'/Controllers/Dog_likeController.php');
+$like = new LikeController();
 $player = new PlayerController();
 $id = $_GET;
 $brog = $player->get_post_Date($id['id']);
 $dog = $player->get_name($brog['dog_id'],$brog['parsonality_id'],$brog['traning_id']);
 $user_id = $_SESSION['id'];
 $post_id = $id['id'];
-$likes = $player->like_Count($post_id);
+$likes = $like->like_Count($post_id);
 $commentAll = $player->fetchCommentAll($post_id);
 ?>
 <!DOCTYPE html>
@@ -68,11 +70,11 @@ $commentAll = $player->fetchCommentAll($post_id);
                   <?php if ($_SESSION['role'] == 1): ?>
                     <button type="button"class="btn btn-outline-secondary" onclick="history.back()">戻る</button>
                     <section class="post" data-postid="<?=$post_id ?>" data-userid="<?=$user_id?>">
-                              <div class="like_btn <?php if (!$player->like($user_id,$post_id)){echo 'active';} ?>">
+                              <div class="like_btn <?php if (!$like->like($user_id,$post_id)){echo 'active';} ?>">
                               <!-- 自分がいいねした投稿にはハートのスタイルを常に保持する -->
                               <i class="a fa-heart fa-lg px-24
                               <?php
-                              if($player->like($user_id,$post_id)){ //いいね押したらハートが塗りつぶされる
+                              if($like->like($user_id,$post_id)){ //いいね押したらハートが塗りつぶされる
                                   echo ' active fas';
                               }else{ //いいねを取り消したらハートのスタイルが取り消される
                                   echo ' far';

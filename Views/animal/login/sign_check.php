@@ -4,10 +4,10 @@ if (empty($_SERVER["HTTP_REFERER"])) {
 }
 session_start();
 require_once(ROOT_PATH .'/Models/validate.php');
-require_once(ROOT_PATH .'/Controllers/PlayerController.php');
-$player = new PlayerController();
+require_once(ROOT_PATH .'Controllers/Dog_userController.php');
+$users = new Dog_userController();
 $brog = $_POST;
-$check = $player->Fetch_user();
+$check = $users->Fetch_user();
 validation($brog,$check);
 ?>
 <!DOCTYPE html>

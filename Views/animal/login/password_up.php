@@ -4,14 +4,14 @@ if (empty($_SERVER["HTTP_REFERER"])) {
 }
 session_start();
 require_once(ROOT_PATH .'/Models/validate.php');
-require_once(ROOT_PATH .'/Controllers/PlayerController.php');
-$player = new PlayerController();
+require_once(ROOT_PATH .'Controllers/Dog_userController.php');
+$users = new Dog_userController();
 $brog = $_POST;
 password_validate_empty($brog);
-$user = $player->Get_usure($brog['email']);
+$user = $users->Get_usure($brog['email']);
 login_validate_email($brog,$user);
 $password = bin2hex(random_bytes(5));
-$player->Update_password($password,$brog);
+$users->Update_password($password,$brog);
 // メール送信可能
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;

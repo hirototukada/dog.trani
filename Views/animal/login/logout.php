@@ -3,10 +3,10 @@ if (empty($_SERVER["HTTP_REFERER"])) {
   header('Location: ../login/login.php');
 }
 session_start();
-require_once(ROOT_PATH .'Controllers/PlayerController.php');
-$player = new PlayerController();
+require_once(ROOT_PATH .'Controllers/Dog_userController.php');
+$user = new Dog_userController();
 $_SESSION = $_POST;
-$player->Logout();
+$user->Logout();
 ?>
 <!DOCTYPE html>
 <html lang="ja">
