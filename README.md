@@ -22,12 +22,12 @@
 xammp/mysql/php
 
 
-# テーブル
+# データベース
 
 データベース名：dog_form
 
 
-# データベース
+# テーブル
 
 お使いのphpMyAdminに上記ファイル（smilelifeDB.sql）をインポートしていただければお使いになれると思います。
 
