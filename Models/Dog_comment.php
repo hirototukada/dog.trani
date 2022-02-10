@@ -2,7 +2,7 @@
 require_once(ROOT_PATH .'/Models/Db.php');
 
 class Comment extends Db{
-    private $table = 'like';
+    private $table = 'comment';
     public function __construct($dbh = null){
         parent::__construct($dbh);
     }
