@@ -201,35 +201,6 @@ class dog_post extends Db{
               return $count;
             }
             /**
-              *ページング機能
-              *
-              * @param integer
-              *@return Array $count
-              */
-              public function countFetch($brog,$page){
-                $page = 0;
-                $sql = 'SELECT count(*) as count
-                        FROM post p
-                        JOIN dog g ON g.id = p.dog_id
-                        JOIN parsonality p1 ON p1.id = p.parsonality_id
-                        JOIN traning t ON t.id = p.traning_id
-                        WHERE g.id = :dog OR p1.id = :parsonality OR t.id = :traning OR p.body  LIKE :body
-                        ORDER BY p.created_at DESC';
-                if (!empty($brog['search'])) {
-                  $brog['search'] = "%".$brog['search']."%";
-                }
-                $sql .=' LIMIT 6 OFFSET '.(6*$page);
-                $sth = $this->dbh->prepare($sql);
-                $sth->bindParam(':dog',$brog['dog'],PDO::PARAM_INT);
-                $sth->bindParam(':parsonality',$brog['parsonality'],PDO::PARAM_INT);
-                $sth->bindParam(':traning',$brog['traning'],PDO::PARAM_INT);
-                $sth->bindParam(':body',$brog['search'],PDO::PARAM_STR);
-                $sth->execute();
-                $count = $sth->fetchColumn();
-                return $count;
-              }
-            
-            /**
               *postテーブル削除機能
               *
               * @param integer $brog
