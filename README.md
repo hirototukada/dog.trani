@@ -30,8 +30,4 @@ xammp/mysql/php
 # テーブル
 
 お使いのphpMyAdminに上記ファイル（smilelifeDB.sql）をインポートしていただければお使いになれると思います。
-<<<<<<< HEAD
-変更！！
 
-=======
->>>>>>> caaecfbf1a3d9bafcbd6838d5877d2bbaf03d94b
