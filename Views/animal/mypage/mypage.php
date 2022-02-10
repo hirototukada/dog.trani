@@ -26,7 +26,6 @@ $post_crated = $Dog_post->Get_post_limit();
         </div>
         </div>
         <div class="mb-3">
-          <!-- <div class="carousel-item active"> -->
             <div class="bg-white text-center p-2 mt-2"><h1>NewTopics</h1></div>
             <div class="d-flex justify-content-evenly p-3 rounded-pill">
               <?php for ($i = 0; $i < count($post_crated); $i++): ?>
