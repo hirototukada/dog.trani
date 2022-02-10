@@ -80,7 +80,7 @@ public function index($brog){
   }
 
   $players = $this->dog_post->search($page,$brog);
-  $players_count = $this->dog_post->countFetch($brog,$page);
+  $players_count = count($players);
   $params = [
     'players' => $players,
     'pages' => $players_count / 6
@@ -200,6 +200,5 @@ public function Get_post_limit(){
  public function UP_date_Post($brog){
     $result = $this->dog_post->UP_date_post($brog);
     return $result;
- }          
-    
+ }            
 }
