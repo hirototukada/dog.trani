@@ -30,4 +30,3 @@ xammp/mysql/php
 # テーブル
 
 お使いのphpMyAdminに上記ファイル（smilelifeDB.sql）をインポートしていただければお使いになれると思います。
-
