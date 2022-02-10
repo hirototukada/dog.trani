@@ -1,3 +1,17 @@
+<?php
+require_once(ROOT_PATH .'Controllers/Dog_postController.php');
+require_once(ROOT_PATH .'/Controllers/Dog_likeController.php');
+require_once(ROOT_PATH .'Controllers/ValidateController.php');
+require_once(ROOT_PATH .'Controllers/Dog_questionsController.php');
+require_once(ROOT_PATH .'/Controllers/Dog_likeController.php');
+require_once(ROOT_PATH .'Controllers/Dog_userController.php');
+$Dog_post = new Dog_postController();
+$like = new LikeController();
+$validation = new ValidateController();
+$Questions = new QuestionsController();
+$like = new LikeController();
+$users = new Dog_userController();
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -6,7 +20,13 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/header.css">
-</head>
+    <link rel="stylesheet" type="text/css" href="/css/sign.css">
+    <link rel="stylesheet" type="text/css" href="/css/page.css">
+    <link rel="stylesheet" type="text/css" href="/css/like.css">    
+    <link rel="stylesheet" type="text/css" href="/css/form.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 <body>
   <nav class="green navbar navbar-light text-white mb-2 bg-opacity-50">
     <div class="container-fluid">

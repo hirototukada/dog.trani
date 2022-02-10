@@ -3,13 +3,11 @@ if (empty($_SERVER["HTTP_REFERER"])) {
     header('Location: ../login/login.php');
   }
 session_start();
-require_once(ROOT_PATH .'/Controllers/PlayerController.php');
-require_once(ROOT_PATH .'/Models/validate.php');
-$player = new PlayerController();
+include '../Views/animal/include/header2.php';
 $file =$_FILES;
 $brog = $_POST;
-form_validate($brog);
-img_validate($file);
+$validation->FormValdation($brog);
+$validation->ImgValidation($file);
 $filename = basename($file['img']['name']);
 $save_filename = date('YmbHis').$filename;
 $upload_dir = 'UPload/';
@@ -18,20 +16,15 @@ move_uploaded_file($file['img']['tmp_name'],$upload_file);
 $dog1 = $brog['dog'];
 $traning = $brog['traning'];
 $parsonality = $brog['parsonality'];
-$dog = $player->get_name($dog1,$parsonality,$traning);
+$dog = $Dog_post->get_name($dog1,$parsonality,$traning);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <mate charset="UTF-8">
     <title>投稿確認画面</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/form.css">
 </head>
 <body>
-  <header><?php include '../Views/animal/include/header2.php';?><header>
-
   <form action="my_up.php" method="post">
   <div class="container mt-3 py-2 pb-5">
       <div class="row">

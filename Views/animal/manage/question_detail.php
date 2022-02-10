@@ -3,26 +3,20 @@ if (empty($_SERVER["HTTP_REFERER"])) {
   header('Location: ../login/login.php');
 }
 session_start();
-require_once(ROOT_PATH .'/Controllers/PlayerController.php');
-$player = new PlayerController();
+if ($_SESSION['role'] == 1){
+  include '../Views/animal/include/header1.php';
+}elseif ($_SESSION['role'] == 2){
+  include '../Views/animal/include/header2.php';
+}
 $get = $_GET;
-$brog = $player->Fetch_question_id($get);
+$brog = $Questions->Fetch_question_id($get);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <mate charset="UTF-8">
     <title>質問詳細画面</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="/css/sign.css">
 </head>
-<?php if ($_SESSION['role'] == 1): ?>
-  <header><?php include '../Views/animal/include/header1.php';?><header>
-<?php elseif ($_SESSION['role'] == 2): ?>
-  <header><?php include '../Views/animal/include/header2.php';?><header>
-<?php endif; ?>
 <body class="bg-light">
   <div class="align-items-center">
   <form action="question_up.php" method="post" class="bg-white border-g m-auto mt-5 rounded-3 p-4 w-50">

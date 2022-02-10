@@ -3,10 +3,9 @@ if (empty($_SERVER["HTTP_REFERER"])) {
   header('Location: ../login/login.php');
 }
 session_start();
-require_once(ROOT_PATH .'/Controllers/PlayerController.php');
-$player = new PlayerController();
+include '../Views/animal/include/header2.php';
 $brog = $_POST;
-$player->Insert_post($brog);
+$Dog_post->Insert_post($brog);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -18,7 +17,6 @@ $player->Insert_post($brog);
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="/css/sign.css">
 </head>
-  <header><?php include '../Views/animal/include/header2.php';?><header>
 <body class="bg-light">
   <form class="h-100 mt-4 p-5">
     <div class="w-50 m-auto mt-4 border-g bg-white p-3">

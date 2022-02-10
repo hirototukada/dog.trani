@@ -3,11 +3,9 @@ if (empty($_SERVER["HTTP_REFERER"])) {
   header('Location: ../login/login.php');
 }
 session_start();
-require_once(ROOT_PATH .'/Controllers/PlayerController.php');
-require_once(ROOT_PATH .'/Models/validate.php');
-$player = new PlayerController();
+include '../Views/animal/include/header1.php';
 $brog = $_POST;
-question_validate($brog);
+$validation->QuestionValidation($brog);
 $traning = $player->get_traning($brog['traning']);
 ?>
 <!DOCTYPE html>
@@ -16,11 +14,7 @@ $traning = $player->get_traning($brog['traning']);
     <mate charset="UTF-8">
     <title>質問確認画面</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="/css/sign.css">
 </head>
-<header><?php include '../Views/animal/include/header1.php';?><header>
 <body class="bg-light">
   <div class="align-items-center">
   <form action="question_up.php" method="post" class="bg-white border-g m-auto mt-5 rounded-3 p-4 w-50">

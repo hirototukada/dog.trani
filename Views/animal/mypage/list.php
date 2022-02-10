@@ -3,8 +3,7 @@ if (empty($_SERVER["HTTP_REFERER"])) {
   header('Location: ../login/login.php');
 }
 session_start();
-require_once(ROOT_PATH .'/Controllers/PlayerController.php');
-$player = new PlayerController();
+include '../Views/animal/include/header1.php';
 $brog = $_GET ? $_GET : '';
 $url_arr = explode('&page=', $_SERVER['REQUEST_URI']);
 $url = $url_arr[0];
@@ -12,9 +11,9 @@ if (empty($brog['dog'])         &&
     empty($brog['parsonality']) &&
     empty($brog['traning'])     &&
     empty($brog['search'])) {
-  $params = $player->indexAll();
+  $params = $Dog_post->indexAll();
 }else {
-  $params = $player->index($brog);
+  $params = $Dog_post->index($brog);
 }
 ?>
 <!DOCTYPE html>
@@ -22,9 +21,6 @@ if (empty($brog['dog'])         &&
 <head>
     <mate charset="UTF-8">
     <title>検索結果一覧画面</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <style>
 .wa{
   display: flex;
@@ -36,7 +32,6 @@ if (empty($brog['dog'])         &&
 </style>
 </head>
 <body>
-    <?php include '../Views/animal/include/header1.php';?>
       <div class="mt-3 w-75 m-auto"><h2 class="mt-4">検索結果</h2></div>
       <?php if (empty($params['players'])): ?>
           <?php echo '検索結果はありません。'; ?>

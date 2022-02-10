@@ -3,33 +3,26 @@ if (empty($_SERVER["HTTP_REFERER"])) {
     header('Location: ../login/login.php');
   }
 session_start();
-require_once(ROOT_PATH .'/Controllers/PlayerController.php');
-require_once(ROOT_PATH .'/Controllers/Dog_likeController.php');
-$like = new LikeController();
-$player = new PlayerController();
+if ($_SESSION['role'] == 1){
+    include '../Views/animal/include/header1.php';
+}elseif ($_SESSION['role'] == 2){
+    include '../Views/animal/include/header2.php';
+}
 $id = $_GET;
-$brog = $player->get_post_Date($id['id']);
-$dog = $player->get_name($brog['dog_id'],$brog['parsonality_id'],$brog['traning_id']);
+$brog = $Dog_post->get_post_Date($id['id']);
+$dog = $Dog_post->get_name($brog['dog_id'],$brog['parsonality_id'],$brog['traning_id']);
 $user_id = $_SESSION['id'];
 $post_id = $id['id'];
 $likes = $like->like_Count($post_id);
-$commentAll = $player->fetchCommentAll($post_id);
+$commentAll = $Dog_post->fetchCommentAll($post_id);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <mate charset="UTF-8">
     <title>投稿詳細画面</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/like.css">
 </head>
 <body>
-  <?php if ($_SESSION['role'] == 1): ?>
-    <header><?php include '../Views/animal/include/header1.php';?></header>
-  <?php elseif ($_SESSION['role'] == 2): ?>
-    <header><?php include '../Views/animal/include/header2.php';?></header>
-  <?php endif; ?>
 <main>
        <div class="container mt-3">
            <div class="row">

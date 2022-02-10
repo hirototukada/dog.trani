@@ -3,23 +3,17 @@ if (empty($_SERVER["HTTP_REFERER"])) {
   header('Location: ../login/login.php');
 }
 session_start();
-require_once(ROOT_PATH .'/Models/validate.php');
-require_once(ROOT_PATH .'/Controllers/PlayerController.php');
-$player = new PlayerController();
+include '../Views/animal/include/header2.php';
 $login = $_SESSION;
-$post_crated = $player->Fetch_post_question();
+$post_crated = $Questions->Fetch_post_question();
 ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <mate charset="UTF-8">
     <title>管理者ユーザー画面</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/page.css">
     <style>span{font-weight: bold; font-size: 26px;}</style>
 </head>
-<header><?php include '../Views/animal/include/header2.php';?><header>
   <div class="mb-3">
       <div class="bg-white text-center p-2"><h1>NewQuestions</h1></div>
       <div class="d-flex justify-content-evenly p-3 rounded-pill">

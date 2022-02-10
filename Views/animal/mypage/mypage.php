@@ -3,24 +3,18 @@ if (empty($_SERVER["HTTP_REFERER"])) {
   header('Location: ../login/login.php');
 }
 session_start();
-require_once(ROOT_PATH .'/Models/validate.php');
-require_once(ROOT_PATH .'/Controllers/PlayerController.php');
-$player = new PlayerController();
+include '../Views/animal/include/header1.php';
 $brog = $_POST;
 $login = $_SESSION;
-$post_crated = $player->Get_post_limit();
+$post_crated = $Dog_post->Get_post_limit();
 ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <mate charset="UTF-8">
     <title>一般ユーザー画面</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/page.css">
 </head>
 <body>
-      <header><?php include '../Views/animal/include/header1.php';?><header>
         <div class='siba'>
           <div class="card m-auto" style="max-width: 80%;">
               <img class="card-img img-fluid hight:200px" src="/img/dog2.jpeg" alt="柴犬の Oslo Opera House" style="hight: 20rem;">

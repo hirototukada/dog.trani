@@ -3,29 +3,21 @@ if (empty($_SERVER["HTTP_REFERER"])) {
   header('Location: ../login/login.php');
 }
 session_start();
-require_once(ROOT_PATH .'/Controllers/PlayerController.php');
-$player = new PlayerController();
+include '../Views/animal/include/header2.php';
 $id = $_GET;
-$brog = $player->get_post_Date($id['id']);
-$dog = $player->get_name($brog['dog_id'],$brog['parsonality_id'],$brog['traning_id']);
-$dog_t = $player->Get_dog_date();
-$parsonality_t = $player->Get_parsonality_date();
-$traning_t = $player->Get_traning_date();
+$brog = $Dog_post->get_post_Date($id['id']);
+$dog = $Dog_post->get_name($brog['dog_id'],$brog['parsonality_id'],$brog['traning_id']);
+$dog_t = $Dog_post->Get_dog_date();
+$parsonality_t = $Dog_post->Get_parsonality_date();
+$traning_t = $Dog_post->Get_traning_date();
 ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <mate charset="UTF-8">
     <title>投稿編集画面</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/form.css">
 </head>
 <body>
-  <header><?php include '../Views/animal/include/header2.php';?><header>
-
-
-
   <div class="align-items-center">
   <form action="my_check.php" enctype="multipart/form-data" method="post" class="bg-white border-g m-auto mt-5 rounded-3 p-4 w-50">
     <h2 class="text-center pb-3 mb-3 border-b green-text">新規投稿フォーム</h2>

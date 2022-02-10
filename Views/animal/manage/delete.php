@@ -3,12 +3,11 @@ if (empty($_SERVER["HTTP_REFERER"])) {
   header('Location: ../login/login.php');
 }
 session_start();
-require_once(ROOT_PATH .'/Controllers/PlayerController.php');
-$player = new PlayerController();
+include '../Views/animal/include/header2.php';
 var_dump($_GET['id']);
 $brog = $_GET;
-$player->Post_Delete($brog);
-$player->Post_question_Delete($brog);
+$Dog_post->Post_Delete($brog);
+$Questions->Post_question_Delete($brog);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -19,7 +18,7 @@ $player->Post_question_Delete($brog);
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <body>
-  <header><?php include '../Views/animal/include/header2.php';?><header>
+  <header><?php ?><header>
     <body class="bg-light">
       <form class="h-100 mt-4 p-5">
         <div class="w-50 m-auto mt-4 border-g bg-white p-3">

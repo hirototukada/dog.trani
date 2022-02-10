@@ -3,8 +3,8 @@ if (empty($_SERVER["HTTP_REFERER"])) {
     header('Location: ../login/login.php');
   }
 header("Content-type: application/json; charset=UTF-8");
-require_once(ROOT_PATH .'Controllers/PlayerController.php');
-$comment = new PlayerController();
+require_once(ROOT_PATH .'Controllers/Dog_postController.php');
+$comment = new Dog_postController();
 $brog = $_POST;
 $comment->commentPost($brog);
 $comment_json = $comment->fetchComment($brog);

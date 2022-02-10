@@ -1,15 +1,13 @@
 <?php
-$dog_modal = $player->Get_dog_date();
-$parsonality_modal = $player->Get_parsonality_date();
-$traning_modal = $player->Get_traning_date();
+$dog_modal = $Dog_post->Get_dog_date();
+$parsonality_modal = $Dog_post->Get_parsonality_date();
+$traning_modal = $Dog_post->Get_traning_date();
 ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <mate charset="UTF-8">
     <title>検索画面</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/css/css/bootstrap.min.css">
  </head>
 
      <!-- ボタン・リンククリック後に表示される画面の内容 -->

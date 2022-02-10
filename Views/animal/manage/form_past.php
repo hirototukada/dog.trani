@@ -3,9 +3,12 @@ if (empty($_SERVER["HTTP_REFERER"])) {
   header('Location: ../login/login.php');
 }
 session_start();
-require_once(ROOT_PATH .'/Controllers/PlayerController.php');
-$player = new PlayerController();
-$user = $player->Fetch_question();
+if ($_SESSION['role'] == 1){
+  include '../Views/animal/include/header1.php';
+}elseif ($_SESSION['role'] == 2){
+  include '../Views/animal/include/header2.php';
+}
+$user = $Questions->Fetch_question();
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -17,11 +20,6 @@ $user = $player->Fetch_question();
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="/css/page.css">
 </head>
-  <?php if ($_SESSION['role'] == 1): ?>
-    <header><?php include '../Views/animal/include/header1.php';?><header>
-  <?php elseif ($_SESSION['role'] == 2): ?>
-    <header><?php include '../Views/animal/include/header2.php';?><header>
-  <?php endif; ?>
   <body class="bg-light">
     <div class="text-center p-2"><h1>質問一覧</h1></div>
     <div class="col-9 m-auto">

@@ -4,23 +4,18 @@ if (empty($_SERVER["HTTP_REFERER"])) {
 }
 session_start();
 $err = $_SESSION;
-require_once(ROOT_PATH .'/Controllers/PlayerController.php');
-$player = new PlayerController();
-$dog = $player->Get_dog_date();
-$parsonality = $player->Get_parsonality_date();
-$traning = $player->Get_traning_date();
+include '../Views/animal/include/header2.php';
+$dog = $Dog_post->Get_dog_date();
+$parsonality = $Dog_post->Get_parsonality_date();
+$traning = $Dog_post->Get_traning_date();
 ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <mate charset="UTF-8">
     <title>新規投稿編集画面</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/form.css">
 <style>span{color: red;}</style>
 </head>
-<header><?php include '../Views/animal/include/header2.php';?><header>
   <body class="bg-light">
     <div class="align-items-center">
     <form action="form_check.php" enctype="multipart/form-data" method="post" class="bg-white border-g m-auto mt-5 rounded-3 p-4 w-50">

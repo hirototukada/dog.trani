@@ -3,18 +3,14 @@ if (empty($_SERVER["HTTP_REFERER"])) {
   header('Location: ../login/login.php');
 }
 session_start();
-require_once(ROOT_PATH .'/Controllers/PlayerController.php');
-$player = new PlayerController();
-$params = $player->likeAll();
+include '../Views/animal/include/header1.php';
+$params = $like->likeAll();
 ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <mate charset="UTF-8">
     <title>検索結果一覧画面</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <style>
 .wa{
   display: flex;
@@ -26,7 +22,6 @@ $params = $player->likeAll();
 </style>
 </head>
 <body>
-    <?php include '../Views/animal/include/header1.php';?>
       <div class="mt-3 w-75 m-auto"><h2 class="mt-4">検索結果</h2></div>
       <?php if (empty($params['players'])): ?>
           <?php echo '検索結果はありません。'; ?>
