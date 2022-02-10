@@ -80,10 +80,10 @@ public function index($brog){
   }
 
   $players = $this->dog_post->search($page,$brog);
-  $players_count = count($players);
+  $animal_count = count($players);
   $params = [
     'players' => $players,
-    'pages' => $players_count / 6
+    'pages' => $animal_count / 6
   ];
   return $params;
 }
