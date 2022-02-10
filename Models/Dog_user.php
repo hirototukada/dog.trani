@@ -13,8 +13,8 @@ class Dog_user extends Db{
       *@return Array $result
       */
     public function insert_usure($brog){
-        $sql = 'INSERT INTO user(name,email,tel,password)
-                VALUES (:name,:email,:tel,:password)';
+        $sql = "INSERT INTO $this->table(name,email,tel,password)
+                VALUES (:name,:email,:tel,:password)";
         $this->dbh->beginTransaction();
         try {
           $sth = $this->dbh->prepare($sql);
@@ -39,7 +39,7 @@ class Dog_user extends Db{
       *@return Array $result
       */
     public function fetch_user(){
-        $sql = 'SELECT * FROM user';
+        $sql = "SELECT * FROM $this->table";
         $sth = $this->dbh->prepare($sql);
         $sth->execute();
         $result = $sth->fetchAll(PDO::FETCH_ASSOC);
@@ -52,7 +52,7 @@ class Dog_user extends Db{
       *@return Array $result
       */
     public function get_usure($email){
-        $sql = 'SELECT * FROM user WHERE email = :email';
+        $sql = "SELECT * FROM $this->table WHERE email = :email";
         $sth = $this->dbh->prepare($sql);
         $sth->bindParam(':email',$email,PDO::PARAM_STR);
         $sth->execute();
@@ -88,8 +88,8 @@ class Dog_user extends Db{
       *@return Array $result
       */
     public function update_password($password,$brog){
-        $sql = 'UPDATE user SET password = :password
-                WHERE email = :email';
+        $sql = "UPDATE $this->table SET password = :password
+                WHERE email = :email";
         $password_hash = password_hash($password,PASSWORD_DEFAULT);
         $this->dbh->beginTransaction();
         try {
@@ -111,8 +111,8 @@ class Dog_user extends Db{
       *@return Array $result
       */
     public function get_user_fetch($brog){
-        $sql = 'SELECT * FROM user
-                WHERE id = :id';
+        $sql = "SELECT * FROM $this->table
+                WHERE id = :id";
         $sth = $this ->dbh->prepare($sql);
         $sth->bindParam(':id',$brog['id'],PDO::PARAM_INT);
         $sth->execute();
