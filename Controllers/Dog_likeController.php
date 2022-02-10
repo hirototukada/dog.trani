@@ -53,10 +53,10 @@ class LikeController{
         }
 
         $players = $this->Dog_like->fetch_like_user($page);
-        $players_count = $this->Dog_like->countLike();
+        $countlike = $this->Dog_like->countLike();
         $params = [
             'players' => $players,
-            'pages' => $players_count / 6
+            'pages' => $countlike / 6
         ];
         return $params;
     }
