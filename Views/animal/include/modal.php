@@ -1,4 +1,7 @@
 <?php
+if (empty($_SERVER["HTTP_REFERER"])) {
+  header('Location: ../login/login.php');
+}
 $dog_modal = $Dog_post->Get_dog_date();
 $parsonality_modal = $Dog_post->Get_parsonality_date();
 $traning_modal = $Dog_post->Get_traning_date();

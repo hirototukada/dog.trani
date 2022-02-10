@@ -1,4 +1,7 @@
 <?php
+if (empty($_SERVER["HTTP_REFERER"])) {
+  header('Location: ../login/login.php');
+}
 require_once(ROOT_PATH .'Controllers/Dog_postController.php');
 require_once(ROOT_PATH .'/Controllers/Dog_likeController.php');
 require_once(ROOT_PATH .'Controllers/ValidateController.php');

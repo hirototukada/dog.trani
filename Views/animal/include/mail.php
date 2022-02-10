@@ -1,4 +1,7 @@
 <?php
+if (empty($_SERVER["HTTP_REFERER"])) {
+  header('Location: ../login/login.php');
+}
 // メール送信可能
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
