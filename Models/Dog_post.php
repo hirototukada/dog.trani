@@ -96,7 +96,7 @@ class dog_post extends Db{
             *@return Array $result
             */
           public function get_post_Date($brog){
-            $sql = 'SELECT * FROM post WHERE id = :id';
+            $sql = "SELECT * FROM $this->table WHERE id = :id";
             $sth = $this ->dbh->prepare($sql);
             $sth->bindParam(':id',$brog,PDO::PARAM_STR);
             $sth->execute();
@@ -110,8 +110,8 @@ class dog_post extends Db{
             *@return Array $result
             */
           public function insert_post($brog){
-            $sql = 'INSERT INTO post(img,name,dog_id,parsonality_id,traning_id,body)
-                    VALUES (:img,:name,:dog_id,:parsonality_id,:traning_id,:body)';
+            $sql = "INSERT INTO $this->table(img,name,dog_id,parsonality_id,traning_id,body)
+                    VALUES (:img,:name,:dog_id,:parsonality_id,:traning_id,:body)";
             $this->dbh->beginTransaction();
             try {
               $sth = $this->dbh->prepare($sql);
@@ -194,7 +194,7 @@ class dog_post extends Db{
               *@return Array $count
               */
             public function countAll():Int{
-              $sql = 'SELECT count(*) as count FROM post';
+              $sql = "SELECT count(*) as count FROM $this->table";
               $sth = $this->dbh->prepare($sql);
               $sth->execute();
               $count = $sth->fetchColumn();
@@ -209,7 +209,7 @@ class dog_post extends Db{
             public function post_Delete($brog){
               $this->dbh->beginTransaction();
               try {
-                $sql = 'DELETE FROM post WHERE id = :id';
+                $sql = "DELETE FROM $this->table WHERE id = :id";
                 $sth = $this->dbh->prepare($sql);
                 $sth->bindParam(':id',$brog['id'],PDO::PARAM_INT);
                 $sth->execute();
@@ -229,9 +229,9 @@ class dog_post extends Db{
               public function UP_date_post($brog){
                 $this->dbh->beginTransaction();
                 try {
-                  $sql = 'UPDATE post
+                  $sql = "UPDATE $this->table
                           SET img = :img, name = :name, dog_id = :dog_id , parsonality_id = :parsonality_id , traning_id = :traning_id , body = :body
-                          WHERE id = :id';
+                          WHERE id = :id";
                   $sth = $this->dbh->prepare($sql);
                   $sth->bindParam(':img',$brog["img"],PDO::PARAM_STR);
                   $sth->bindParam(':name',$brog["name"],PDO::PARAM_STR);

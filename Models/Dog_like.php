@@ -2,7 +2,7 @@
 require_once(ROOT_PATH .'/Models/Db.php');
 
 class Dog_like extends Db{
-    private $table = 'like';
+    private $table = 'likes';
     public function __construct($dbh = null){
         parent::__construct($dbh);
     }
@@ -14,7 +14,7 @@ class Dog_like extends Db{
     */
     function check_like_duplicate($user_id, $post_id){
 
-        $sql = " SELECT * FROM `likes` WHERE user_id = :user_id AND post_id = :post_id";
+        $sql = " SELECT * FROM $this->table WHERE user_id = :user_id AND post_id = :post_id";
         $sth = $this->dbh->prepare($sql);
         $sth->bindParam(':user_id', $user_id, PDO::PARAM_INT);
         $sth->bindParam(':post_id', $post_id, PDO::PARAM_INT);
@@ -30,7 +30,7 @@ class Dog_like extends Db{
     */
     function clearLike($user_id, $post_id){
 
-        $sql = " DELETE FROM `likes` WHERE :user_id = user_id AND :post_id = post_id ";
+        $sql = " DELETE FROM $this->table WHERE :user_id = user_id AND :post_id = post_id ";
         $this->dbh->beginTransaction();
         try {
             $sth = $this->dbh->prepare($sql);
@@ -51,7 +51,7 @@ class Dog_like extends Db{
     *@return Array $return
     */
     function registerLike($user_id, $post_id){
-        $sql =" INSERT INTO `likes`( post_id, user_id )
+        $sql =" INSERT INTO $this->table( post_id, user_id )
                 VALUE ( :post_id, :user_id ) ";
         $this->dbh->beginTransaction();
         try {
@@ -73,7 +73,7 @@ class Dog_like extends Db{
     *@return Array $return
     */
     public function fetch_like_count($id){
-        $sql = 'SELECT count(user_id) AS like_count FROM likes WHERE post_id = :post_id';
+        $sql = "SELECT count(user_id) AS like_count FROM $this->table WHERE post_id = :post_id";
         $sth = $this->dbh->prepare($sql);
         $sth->bindParam(':post_id', $id, PDO::PARAM_INT);
         $sth->execute();
@@ -108,10 +108,10 @@ class Dog_like extends Db{
     *@return Array $count
     */
     public function countLike():Int{
-        $sql = 'SELECT count(*) as count FROM post p
-                JOIN likes l ON l.post_id = p.id 
+        $sql = "SELECT count(*) as count FROM post p
+                JOIN $this->table l ON l.post_id = p.id 
                 GROUP BY p.id
-                ORDER BY count DESC';
+                ORDER BY count DESC";
         $sth = $this->dbh->prepare($sql);
         $sth->execute();
         $count = $sth->fetchColumn();

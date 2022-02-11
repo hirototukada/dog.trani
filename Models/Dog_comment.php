@@ -2,7 +2,7 @@
 require_once(ROOT_PATH .'/Models/Db.php');
 
 class Comment extends Db{
-    private $table = 'comment';
+    private $table = 'post_comment';
     public function __construct($dbh = null){
         parent::__construct($dbh);
     }
@@ -13,8 +13,8 @@ class Comment extends Db{
       *@return Array 
       */
     public function comment($brog){
-        $sql = 'INSERT INTO post_comment(user_id,post_id,comment)
-                VALUES (:user_id,:post_id,:comment)'; 
+        $sql = "INSERT INTO $this->table(user_id,post_id,comment)
+                VALUES (:user_id,:post_id,:comment)"; 
         $this->dbh->beginTransaction();
         try {
             $sth = $this->dbh->prepare($sql);

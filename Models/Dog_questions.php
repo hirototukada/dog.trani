@@ -13,8 +13,8 @@ class Dog_questions extends Db{
       *@return Array $result
       */
     public function insert_questions($brog){
-        $sql = 'INSERT INTO questions(name_id,email,traning_id,body)
-                VALUES (:name_id,:email,:traning_id,:body)';
+        $sql = "INSERT INTO $this->table(name_id,email,traning_id,body)
+                VALUES (:name_id,:email,:traning_id,:body)";
         $this->dbh->beginTransaction();
         try {
              $sth = $this->dbh->prepare($sql);
@@ -40,7 +40,7 @@ class Dog_questions extends Db{
     public function question_Delete($brog){
         $this->dbh->beginTransaction();
         try {
-             $sql = 'DELETE FROM questions WHERE id = :id';
+             $sql = "DELETE FROM $this->table WHERE id = :id";
              $sth = $this->dbh->prepare($sql);
              $sth->bindParam(':id',$brog['id'],PDO::PARAM_INT);
              $sth->execute();
@@ -60,8 +60,8 @@ class Dog_questions extends Db{
     public function post_question_Delete($brog){
         $this->dbh->beginTransaction();
         try {
-             $sql = 'DELETE FROM questions
-                     WHERE name_id = :name_id';
+             $sql = "DELETE FROM $this->table
+                     WHERE name_id = :name_id";
              $sth = $this->dbh->prepare($sql);
              $sth->bindParam(':name_id',$brog['id'],PDO::PARAM_INT);
              $sth->execute();
